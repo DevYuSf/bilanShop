@@ -22,11 +22,11 @@ export const login = async(req,res)=>{
     try {
         const {email,password} = req.body
 
-        const user = await user.findOne({email});
+        const lUser = await user.findOne({email});
 
-        if(user){
-            if (user.password == password) {
-                res.status(200).json(user);
+        if(lUser){
+            if (lUser.password == password) {
+                res.status(200).json(lUser);
             }else{
                 res.status(401).json({error:"Invalid password"});
             }
